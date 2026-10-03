@@ -1,0 +1,609 @@
+<title>La Bottega delle Formiche</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&family=Atkinson+Hyperlegible+Next:wght@400;500;700&family=Atkinson+Hyperlegible+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: carta chiara, sezioni ampie su una colonna di 1120px; eroe a due colonne con il quaderno che si personalizza dal vivo */
+:root{
+  --paper:#FBFBF9;
+  --surface:#F1F2F4;
+  --ink:#16181D;
+  --muted:#5B616D;
+  --line:#E2E4E8;
+  --accent:#2340D8;
+  --accent-soft:#E7EBFF;
+  --on-accent:#FFFFFF;
+  --ok:#1C7A4B;
+  --off:#B4372B;
+  --c:#00A3E0; --m:#E5007E; --y:#FFC800;
+  --cover-1:#E9DFC9; --cover-1-ink:#3B3226;
+  --cover-2:#23356F; --cover-2-ink:#F3E9D2;
+  --cover-3:#A8382C; --cover-3-ink:#F7EBDD;
+  --cover-4:#7E9A82; --cover-4-ink:#17251A;
+  --shadow:0 1px 2px rgba(22,24,29,.06),0 12px 32px rgba(22,24,29,.08);
+  --f-display:"Familjen Grotesk","Helvetica Neue",Arial,sans-serif;
+  --f-body:"Atkinson Hyperlegible Next","Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"Atkinson Hyperlegible Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  --radius:18px;
+  --wrap:1120px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#111214; --surface:#1A1C20; --ink:#ECEDEF; --muted:#A2A8B3; --line:#2B2E34;
+    --accent:#8197FF; --accent-soft:#1E2547; --on-accent:#0B0F24; --ok:#4CC38A; --off:#F07A6C;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 12px 32px rgba(0,0,0,.35);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#111214; --surface:#1A1C20; --ink:#ECEDEF; --muted:#A2A8B3; --line:#2B2E34;
+  --accent:#8197FF; --accent-soft:#1E2547; --on-accent:#0B0F24; --ok:#4CC38A; --off:#F07A6C;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 12px 32px rgba(0,0,0,.35);
+  color-scheme:dark;
+}
+
+html{font-size:112.5%;scroll-behavior:smooth}
+html.big{font-size:131.25%}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:1rem;line-height:1.6;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px}
+.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:var(--paper);padding:10px 16px;border-radius:10px;z-index:50}
+.skip:focus{left:16px}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:20px}
+h1,h2,h3{font-family:var(--f-display);line-height:1.08;letter-spacing:-.02em;text-wrap:balance;margin:0}
+p{margin:0}
+.eyebrow{font-family:var(--f-mono);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.lead{font-size:1.2rem;color:var(--muted);max-width:36ch}
+
+/* Header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--paper) 86%,transparent);backdrop-filter:saturate(1.4) blur(14px);-webkit-backdrop-filter:saturate(1.4) blur(14px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:16px;min-height:64px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--f-display);font-weight:700;font-size:1.05rem;letter-spacing:-.01em}
+.brand svg{width:30px;height:30px;color:var(--ink)}
+.nav{display:flex;gap:4px;margin-left:auto;flex-wrap:wrap}
+.nav a{text-decoration:none;font-size:.9rem;padding:8px 12px;border-radius:999px;color:var(--muted)}
+.nav a:hover{color:var(--ink);background:var(--surface)}
+.size{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;flex:none}
+.size button{font:inherit;font-family:var(--f-display);font-weight:600;background:transparent;color:var(--muted);border:0;min-width:44px;min-height:40px;cursor:pointer}
+.size button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.size .s1{font-size:.85rem}.size .s2{font-size:1.1rem}
+@media (max-width:860px){.nav{display:none}.size{margin-left:auto}}
+
+/* Hero */
+.hero{padding-block:clamp(40px,8vw,96px) clamp(48px,7vw,88px)}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(32px,6vw,72px);align-items:center}
+.hero .wrap > *{min-width:0}
+@media (max-width:860px){.hero .wrap{grid-template-columns:1fr}}
+.status{display:inline-flex;align-items:center;gap:10px;font-size:.9rem;padding:8px 14px 8px 12px;border-radius:999px;background:var(--surface);color:var(--ink)}
+.dot{width:10px;height:10px;border-radius:50%;background:var(--muted)}
+.status.open .dot{background:var(--ok);box-shadow:0 0 0 4px color-mix(in srgb,var(--ok) 22%,transparent)}
+.status.closed .dot{background:var(--off)}
+.hero h1{font-size:clamp(2.6rem,6.4vw,4.6rem);font-weight:700;margin-top:22px}
+.hero h1 .soft{color:var(--muted)}
+.hero .lead{margin-top:20px}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 26px;border-radius:999px;font:inherit;font-weight:700;font-size:1.02rem;text-decoration:none;cursor:pointer;border:0;transition:transform .15s ease,background .15s ease}
+.btn:active{transform:scale(.98)}
+.btn.primary{background:var(--accent);color:var(--on-accent)}
+.btn.primary:hover{filter:brightness(1.08)}
+.btn.ghost{background:var(--surface);color:var(--ink)}
+.btn.ghost:hover{background:var(--line)}
+.btn svg{width:20px;height:20px}
+
+/* Quaderno interattivo */
+.studio{background:var(--surface);border-radius:28px;padding:clamp(20px,4vw,36px);display:grid;gap:22px}
+.stage{display:grid;place-items:center;padding-block:12px 4px;position:relative}
+.reg{position:absolute;width:26px;height:26px;color:var(--muted);opacity:.55}
+.reg.tl{top:0;left:0}.reg.br{bottom:0;right:0}
+.notebook{--cv:var(--cover-1);--cvi:var(--cover-1-ink);position:relative;width:min(100%,290px);aspect-ratio:3/4;border-radius:6px 16px 16px 6px;background:var(--cv);color:var(--cvi);box-shadow:inset 10px 0 0 rgba(0,0,0,.08),inset 11px 0 0 rgba(255,255,255,.12),0 2px 4px rgba(0,0,0,.12),0 24px 48px rgba(0,0,0,.18);transition:background .35s ease,color .35s ease;transform:rotate(-2.5deg);display:flex;flex-direction:column;justify-content:space-between;padding:26px 24px 22px 34px;overflow:hidden;max-width:100%}
+.notebook::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(45deg,rgba(255,255,255,.035) 0 2px,transparent 2px 6px);pointer-events:none}
+.notebook .band{position:absolute;top:0;bottom:0;right:28px;width:10px;background:rgba(0,0,0,.28);box-shadow:inset 1px 0 0 rgba(255,255,255,.15)}
+.notebook .label{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;opacity:.75}
+.notebook .name{font-family:var(--f-display);font-weight:700;font-size:clamp(1.7rem,6vw,2.4rem);line-height:1;letter-spacing:-.02em;word-break:break-word;text-shadow:0 1px 0 rgba(255,255,255,.18),0 -1px 0 rgba(0,0,0,.18);padding-right:24px}
+.notebook .name.inked{animation:ink .5s ease}
+@keyframes ink{from{opacity:.15;filter:blur(3px)}to{opacity:1;filter:blur(0)}}
+.notebook .foot{display:flex;align-items:center;gap:8px;font-size:.7rem;opacity:.8}
+.notebook .foot svg{width:16px;height:16px}
+.controls{display:grid;gap:14px}
+.field label{display:block;font-weight:700;font-size:.95rem;margin-bottom:6px}
+.field input,.field textarea,.field select{width:100%;font:inherit;font-size:1.05rem;color:var(--ink);background:var(--paper);border:1.5px solid var(--line);border-radius:14px;padding:14px 16px;min-height:54px}
+.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--accent);outline:none;box-shadow:0 0 0 4px var(--accent-soft)}
+.covers{display:flex;gap:12px;flex-wrap:wrap}
+.cover{width:48px;height:48px;border-radius:50%;border:3px solid var(--paper);box-shadow:0 0 0 1.5px var(--line);cursor:pointer;padding:0}
+.cover[aria-pressed="true"]{box-shadow:0 0 0 3px var(--accent)}
+.c1{background:var(--cover-1)}.c2{background:var(--cover-2)}.c3{background:var(--cover-3)}.c4{background:var(--cover-4)}
+.note{font-size:.9rem;color:var(--muted)}
+
+/* Sezioni */
+section{padding-block:clamp(56px,9vw,112px)}
+.section-head{display:grid;gap:14px;margin-bottom:clamp(28px,5vw,48px);max-width:46rem}
+.section-head h2{font-size:clamp(2rem,4.6vw,3.2rem);font-weight:700}
+.alt{background:var(--surface)}
+
+/* Chi siamo */
+.story{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,72px);align-items:start}
+.story > *{min-width:0}
+@media (max-width:860px){.story{grid-template-columns:1fr}}
+.story .text{display:grid;gap:18px;font-size:1.08rem;max-width:62ch}
+.quote{font-family:var(--f-display);font-size:1.45rem;line-height:1.25;font-weight:600;letter-spacing:-.01em;border-left:3px solid var(--accent);padding-left:18px}
+.timeline{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.timeline li{display:grid;grid-template-columns:5.5rem 1fr;gap:18px;padding-block:18px;border-top:1px solid var(--line)}
+.timeline li:last-child{border-bottom:1px solid var(--line)}
+.timeline .y{font-family:var(--f-mono);font-size:.95rem;color:var(--accent);font-variant-numeric:tabular-nums;padding-top:2px}
+.timeline h3{font-size:1.15rem;font-weight:600;margin-bottom:4px}
+.timeline p{color:var(--muted);font-size:.98rem}
+.why{margin-top:28px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:22px;display:flex;gap:16px;align-items:flex-start}
+.why svg{width:40px;height:40px;flex:none;color:var(--ink)}
+.why h3{font-size:1.1rem;font-weight:600;margin-bottom:4px}
+.why p{color:var(--muted);font-size:.98rem}
+
+/* Cosa facciamo */
+.services{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media (max-width:1000px){.services{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.services{grid-template-columns:1fr}}
+.svc{background:var(--paper);border-radius:var(--radius);padding:26px 22px;display:grid;gap:12px;align-content:start;border:1px solid var(--line)}
+.svc .ico{width:48px;height:48px;border-radius:14px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center}
+.svc .ico svg{width:26px;height:26px}
+.svc h3{font-size:1.2rem;font-weight:600}
+.svc p{color:var(--muted);font-size:.97rem}
+.svc ul{margin:0;padding:0;list-style:none;display:grid;gap:6px;font-size:.95rem}
+.svc li{display:flex;gap:8px}
+.svc li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent);margin-top:.62em;flex:none}
+
+/* Bologna in carta */
+.line{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media (max-width:860px){.line{grid-template-columns:1fr}}
+.prod{display:grid;gap:14px}
+.prod .art{aspect-ratio:4/3;border-radius:var(--radius);display:grid;place-items:center;overflow:hidden;position:relative;max-width:100%}
+.prod .art svg{width:78%;height:auto}
+.a1{background:var(--cover-1);color:var(--cover-1-ink)}
+.a2{background:var(--cover-2);color:var(--cover-2-ink)}
+.a3{background:var(--cover-3);color:var(--cover-3-ink)}
+.prod h3{font-size:1.2rem;font-weight:600}
+.prod p{color:var(--muted);font-size:.97rem}
+.soon{display:inline-block;font-family:var(--f-mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;background:var(--accent-soft);color:var(--accent);padding:5px 10px;border-radius:999px;margin-bottom:6px}
+
+/* Su misura */
+.builder{display:grid;grid-template-columns:1.25fr .75fr;gap:24px;align-items:start}
+.builder > *{min-width:0}
+@media (max-width:900px){.builder{grid-template-columns:1fr}}
+.steps{display:grid;gap:28px}
+.step h3{font-size:1.15rem;font-weight:600;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.step h3 .n{width:30px;height:30px;border-radius:50%;background:var(--ink);color:var(--paper);display:grid;place-items:center;font-size:.9rem;font-family:var(--f-mono);flex:none}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{font:inherit;font-size:1rem;min-height:52px;padding:0 20px;border-radius:14px;background:var(--paper);color:var(--ink);border:1.5px solid var(--line);cursor:pointer;display:inline-flex;align-items:center;gap:10px}
+.chip:hover{border-color:var(--muted)}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.chip svg{width:20px;height:20px}
+.summary{position:sticky;top:calc(env(safe-area-inset-top,0px) + 84px);background:var(--paper);border-radius:22px;padding:24px;box-shadow:var(--shadow);display:grid;gap:16px}
+.summary h3{font-size:1.2rem;font-weight:600}
+.summary dl{margin:0;display:grid;gap:10px}
+.summary dl div{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line);padding-bottom:10px}
+.summary dt{color:var(--muted)}
+.summary dd{margin:0;font-weight:700;text-align:right}
+.msg{font-family:var(--f-mono);font-size:.82rem;background:var(--surface);border-radius:12px;padding:12px 14px;white-space:pre-wrap;word-break:break-word;color:var(--ink)}
+.summary .btn{width:100%}
+.toast{font-size:.9rem;color:var(--ok);min-height:1.4em}
+
+/* Vicini */
+.neighbors{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px);align-items:center}
+.neighbors > *{min-width:0}
+@media (max-width:860px){.neighbors{grid-template-columns:1fr}}
+.who{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:480px){.who{grid-template-columns:1fr}}
+.who div{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:18px}
+.who strong{display:block;font-family:var(--f-display);font-size:1.08rem;margin-bottom:4px}
+.who span{color:var(--muted);font-size:.93rem}
+
+/* Dove siamo */
+.visit{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media (max-width:860px){.visit{grid-template-columns:1fr}}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:clamp(22px,4vw,32px);display:grid;gap:18px;align-content:start}
+.card h3{font-size:1.35rem;font-weight:700}
+.addr{font-size:1.3rem;font-family:var(--f-display);font-weight:600;line-height:1.3}
+.hours{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.hours td{padding:10px 0;border-bottom:1px solid var(--line);font-size:1.02rem}
+.hours td:last-child{text-align:right;color:var(--muted)}
+.hours tr.today td{font-weight:700;color:var(--ink)}
+.hours tr.today td:first-child::after{content:" · oggi";color:var(--accent);font-weight:500}
+.contact{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;background:var(--surface);border-radius:14px;padding:14px 16px}
+.contact .num{font-family:var(--f-display);font-size:1.35rem;font-weight:600;user-select:all;font-variant-numeric:tabular-nums}
+.mini{font:inherit;font-size:.9rem;font-weight:700;background:var(--paper);color:var(--ink);border:1px solid var(--line);border-radius:999px;min-height:44px;padding:0 16px;cursor:pointer}
+.mini:hover{border-color:var(--muted)}
+
+footer{border-top:1px solid var(--line);padding-block:36px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center;color:var(--muted);font-size:.9rem}
+footer .brand{color:var(--ink)}
+</style>
+
+<a class="skip" href="#main">Vai al contenuto</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="ant" viewBox="0 0 64 64">
+      <g fill="currentColor">
+        <ellipse cx="20" cy="32" rx="8" ry="7"/>
+        <ellipse cx="33" cy="32" rx="5.5" ry="5"/>
+        <ellipse cx="48" cy="32" rx="9.5" ry="8"/>
+      </g>
+      <g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M14 27 L8 18 L3 16"/><path d="M14 30 L6 24"/>
+        <path d="M31 28 L27 18 L22 13"/><path d="M33 28 L35 17 L40 12"/><path d="M35 29 L44 20 L50 18"/>
+        <path d="M31 36 L27 46 L22 51"/><path d="M33 36 L35 47 L40 52"/><path d="M35 35 L44 44 L50 46"/>
+      </g>
+    </symbol>
+    <symbol id="reg" viewBox="0 0 26 26"><g fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="13" cy="13" r="6"/><path d="M13 0v26M0 13h26"/></g></symbol>
+  </defs>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#inizio" aria-label="La Bottega delle Formiche, torna su"><svg aria-hidden="true"><use href="#ant"/></svg>La Bottega delle Formiche</a>
+    <nav class="nav" aria-label="Sezioni">
+      <a href="#chi-siamo">Chi siamo</a>
+      <a href="#cosa-facciamo">Cosa facciamo</a>
+      <a href="#su-misura">Su misura</a>
+      <a href="#dove-siamo">Dove siamo</a>
+    </nav>
+    <div class="size" role="group" aria-label="Dimensione del testo">
+      <button class="s1" id="sz-normal" aria-pressed="true" title="Testo normale">A</button>
+      <button class="s2" id="sz-big" aria-pressed="false" title="Testo più grande">A</button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" id="inizio">
+    <div class="wrap">
+      <div>
+        <p class="status" id="status" role="status"><span class="dot"></span><span id="status-text">Lun–ven 8:30–13 e 15–19</span></p>
+        <h1>Lo disegniamo e lo stampiamo noi. <span class="soft">Qui, in via Sant'Isaia.</span></h1>
+        <p class="lead">Andrea e Laura sono grafici dal 1987. Biglietti, inviti, quaderni fatti a mano, magliette e regali personalizzati: ci pensiamo noi, dall'idea alla stampa.</p>
+        <div class="ctas">
+          <a class="btn primary" href="#su-misura">Chiedi un preventivo</a>
+          <a class="btn ghost" href="#dove-siamo">Vieni in bottega</a>
+        </div>
+      </div>
+
+      <div class="studio" aria-labelledby="studio-title">
+        <div class="stage">
+          <svg class="reg tl" aria-hidden="true"><use href="#reg"/></svg>
+          <svg class="reg br" aria-hidden="true"><use href="#reg"/></svg>
+          <div class="notebook" id="notebook">
+            <span class="band" aria-hidden="true"></span>
+            <span class="label">Quaderno cucito a mano</span>
+            <span class="name inked" id="nb-name">Giulia</span>
+            <span class="foot"><svg aria-hidden="true"><use href="#ant"/></svg>Bottega delle Formiche · Bologna</span>
+          </div>
+        </div>
+        <div class="controls">
+          <h2 class="eyebrow" id="studio-title">Provalo: il tuo nome sulla copertina</h2>
+          <div class="field">
+            <label for="nome">Scrivi un nome</label>
+            <input id="nome" type="text" maxlength="18" value="Giulia" autocomplete="off" placeholder="Es. Marco">
+          </div>
+          <div>
+            <p class="field" style="margin:0 0 8px"><label for="cv-1" style="margin:0">Colore della copertina</label></p>
+            <div class="covers" role="group" aria-label="Colore della copertina">
+              <button class="cover c1" id="cv-1" data-cv="1" aria-pressed="true" aria-label="Carta naturale"></button>
+              <button class="cover c2" id="cv-2" data-cv="2" aria-pressed="false" aria-label="Blu notte"></button>
+              <button class="cover c3" id="cv-3" data-cv="3" aria-pressed="false" aria-label="Rosso Bologna"></button>
+              <button class="cover c4" id="cv-4" data-cv="4" aria-pressed="false" aria-label="Verde salvia"></button>
+            </div>
+          </div>
+          <p class="note">Ti piace? Lo prepariamo in bottega. <a href="#su-misura" id="use-name">Usa questo nome nel preventivo</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt" id="chi-siamo">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Chi siamo</p>
+        <h2>Quarant'anni di carta, inchiostro e clienti che tornano.</h2>
+      </div>
+      <div class="story">
+        <div>
+          <div class="text">
+            <p class="quote">Ogni lavoro nasce da una chiacchierata al banco. Ci dici cosa ti serve, lo progettiamo insieme e lo stampiamo qui.</p>
+            <p>Siamo Andrea e Laura. Abbiamo iniziato come grafici quando i testi si componevano ancora in piombo, e abbiamo seguito tutto il cammino fino alla stampa digitale.</p>
+            <p>Oggi la bottega è un posto dove trovare servizi di stampa fatti con cura e oggetti che non si trovano altrove: quaderni cuciti a mano, prodotti in carta italiana, tessili fatti a mano e regali da personalizzare.</p>
+          </div>
+          <div class="why">
+            <svg aria-hidden="true"><use href="#ant"/></svg>
+            <div>
+              <h3>Perché le formiche?</h3>
+              <p>Ce lo chiedono in tanti. È una storia che raccontiamo volentieri: passa in bottega e chiedicela.</p>
+            </div>
+          </div>
+        </div>
+        <ol class="timeline" aria-label="La nostra storia">
+          <li><span class="y">1987</span><div><h3>Grafici</h3><p>Composizione in piombo, poi la tipografia: biglietti da visita, stampati, grandi formati.</p></div></li>
+          <li><span class="y">Anni '90</span><div><h3>Nasce il negozio</h3><p>Il lavoro di grafica e stampa apre le porte al pubblico.</p></div></li>
+          <li><span class="y">Il digitale</span><div><h3>Nuove macchine, stessa cura</h3><p>Stampa digitale, stampa su tessuto, ricamo e personalizzazione di oggetti.</p></div></li>
+          <li><span class="y">Oggi</span><div><h3>La Bottega delle Formiche</h3><p>Via Sant'Isaia 19/A: tipografia, cartoleria artigianale e regali, nel centro di Bologna.</p></div></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section id="cosa-facciamo">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Cosa facciamo</p>
+        <h2>Quattro cose, fatte bene.</h2>
+        <p class="lead">Se non sai da dove partire, vieni a trovarci: la consulenza è parte del lavoro.</p>
+      </div>
+      <div class="services">
+        <article class="svc">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V3h12v6"/><rect x="3" y="9" width="18" height="8" rx="2"/><path d="M6 14h12v7H6z"/></svg></span>
+          <h3>Grafica e stampa</h3>
+          <p>Dal biglietto da visita al grande formato, con un grafico che ti segue.</p>
+          <ul><li>Biglietti da visita e carta intestata</li><li>Inviti, locandine, menù</li><li>Stampe e copie di qualità</li></ul>
+        </article>
+        <article class="svc">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3 4 5l-2 5 3 1v10h14V11l3-1-2-5-4-2a4 4 0 0 1-8 0Z"/></svg></span>
+          <h3>Personalizzazioni</h3>
+          <p>Il tuo nome, il tuo logo, la tua idea su quasi ogni oggetto.</p>
+          <ul><li>T-shirt e felpe stampate o ricamate</li><li>Shopper e gadget</li><li>Magliette di classe e per eventi</li></ul>
+        </article>
+        <article class="svc">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h12a2 2 0 0 1 2 2v16H7a2 2 0 0 1-2-2Z"/><path d="M5 19a2 2 0 0 1 2-2h12"/><path d="M9 7h6"/></svg></span>
+          <h3>Quaderni e cartoleria</h3>
+          <p>Quaderni cuciti a mano e prodotti in carta italiana.</p>
+          <ul><li>Quaderni handmade</li><li>Biglietti d'auguri</li><li>Cancelleria scelta con cura</li></ul>
+        </article>
+        <article class="svc">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12v9H4v-9"/><path d="M2 7h20v5H2z"/><path d="M12 21V7"/><path d="M12 7H8a2.5 2.5 0 1 1 0-5c3 0 4 5 4 5Zm0 0h4a2.5 2.5 0 1 0 0-5c-3 0-4 5-4 5Z"/></svg></span>
+          <h3>Casa e regali</h3>
+          <p>Oggetti da regalare o da tenere, scelti da aziende italiane.</p>
+          <ul><li>Tovaglie e tessili fatti a mano</li><li>Vasi e accessori per la cucina</li><li>Profumatori per la casa</li></ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt" id="bologna-in-carta">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Novità della bottega</p>
+        <h2>Bologna in carta.</h2>
+        <p class="lead">Una piccola linea disegnata e stampata da noi, con i luoghi della città. Da regalare o da portare a casa.</p>
+      </div>
+      <div class="line">
+        <article class="prod">
+          <div class="art a1" aria-hidden="true">
+            <svg viewBox="0 0 200 120" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M10 110h180"/><path d="M20 110V50a12 12 0 0 1 24 0v60M44 110V50a12 12 0 0 1 24 0v60M68 110V50a12 12 0 0 1 24 0v60M92 110V50a12 12 0 0 1 24 0v60M116 110V50a12 12 0 0 1 24 0v60M140 110V50a12 12 0 0 1 24 0v60M164 110V50a12 12 0 0 1 24 0v60"/><path d="M20 38h168M20 30h168"/></svg>
+          </div>
+          <div><span class="soon">In arrivo</span><h3>Taccuino dei portici</h3><p>Copertina illustrata, pagine in carta italiana, cucito a mano.</p></div>
+        </article>
+        <article class="prod">
+          <div class="art a2" aria-hidden="true">
+            <svg viewBox="0 0 200 120" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"><path d="M10 112h180"/><path d="M78 112V12h16v100"/><path d="M80 12V4h12v8"/><path d="M106 112V42h12v70"/><path d="M108 42v-6h8v6"/><path d="M84 30h4M84 50h4M84 70h4M84 90h4M110 60h4M110 80h4"/><path d="M30 112V80l14-10 14 10v32M142 112V74l12-8 12 8v38"/></svg>
+          </div>
+          <div><span class="soon">In arrivo</span><h3>Biglietti delle Due Torri</h3><p>Biglietti d'auguri e cartoline, stampati in bottega.</p></div>
+        </article>
+        <article class="prod">
+          <div class="art a3" aria-hidden="true">
+            <svg viewBox="0 0 200 120" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M64 34h72l10 82H54Z"/><path d="M82 34v-6a18 18 0 0 1 36 0v6"/><use href="#ant" x="78" y="58" width="44" height="44" fill="currentColor" stroke="none"/></svg>
+          </div>
+          <div><span class="soon">In arrivo</span><h3>Shopper della formica</h3><p>In cotone, stampata a mano con il nostro marchio.</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="su-misura">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Su misura</p>
+        <h2>Raccontaci cosa ti serve. In tre tocchi.</h2>
+        <p class="lead">Scegli, e ti prepariamo il messaggio da mandarci su WhatsApp. Ti rispondiamo noi con idee e prezzo.</p>
+      </div>
+      <div class="builder">
+        <form class="steps" id="quote" novalidate>
+          <div class="step">
+            <h3><span class="n">1</span>Che cosa?</h3>
+            <div class="chips" role="group" aria-label="Che cosa" data-group="cosa">
+              <button type="button" class="chip" aria-pressed="true" data-v="Quaderni personalizzati">Quaderni</button>
+              <button type="button" class="chip" aria-pressed="false" data-v="Biglietti da visita">Biglietti da visita</button>
+              <button type="button" class="chip" aria-pressed="false" data-v="Inviti e partecipazioni">Inviti</button>
+              <button type="button" class="chip" aria-pressed="false" data-v="T-shirt o felpe">T-shirt e felpe</button>
+              <button type="button" class="chip" aria-pressed="false" data-v="Shopper e gadget">Shopper e gadget</button>
+              <button type="button" class="chip" aria-pressed="false" data-v="Stampe e locandine">Stampe e locandine</button>
+              <button type="button" class="chip" aria-pressed="false" data-v="Un regalo personalizzato">Un regalo</button>
+            </div>
+          </div>
+          <div class="step">
+            <h3><span class="n">2</span>Quanti pezzi?</h3>
+            <div class="chips" role="group" aria-label="Quanti pezzi" data-group="quanti">
+              <button type="button" class="chip" aria-pressed="true" data-v="1">Uno</button>
+              <button type="button" class="chip" aria-pressed="false" data-v="2–10">2–10</button>
+              <button type="button" class="chip" aria-pressed="false" data-v="10–50">10–50</button>
+              <button type="button" class="chip" aria-pressed="false" data-v="Più di 50">Più di 50</button>
+            </div>
+          </div>
+          <div class="step">
+            <h3><span class="n">3</span>Per quando?</h3>
+            <div class="chips" role="group" aria-label="Per quando" data-group="quando">
+              <button type="button" class="chip" aria-pressed="false" data-v="Il prima possibile">Prima possibile</button>
+              <button type="button" class="chip" aria-pressed="true" data-v="Entro due settimane">Entro 2 settimane</button>
+              <button type="button" class="chip" aria-pressed="false" data-v="Non ho fretta">Non ho fretta</button>
+            </div>
+          </div>
+          <div class="field">
+            <label for="dettagli">Vuoi aggiungere qualcosa? <span style="font-weight:400;color:var(--muted)">(facoltativo)</span></label>
+            <textarea id="dettagli" rows="3" placeholder="Es. il nome Giulia sulla copertina, colore blu"></textarea>
+          </div>
+        </form>
+
+        <aside class="summary" aria-labelledby="sum-title">
+          <h3 id="sum-title">La tua richiesta</h3>
+          <dl>
+            <div><dt>Cosa</dt><dd id="s-cosa">Quaderni personalizzati</dd></div>
+            <div><dt>Quanti</dt><dd id="s-quanti">1</dd></div>
+            <div><dt>Quando</dt><dd id="s-quando">Entro due settimane</dd></div>
+          </dl>
+          <p class="msg" id="msg" aria-live="polite"></p>
+          <a class="btn primary" id="wa" href="#" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.4 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.7-.1l.9-1.1c.2-.3.4-.2.7-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/></svg>
+            Manda su WhatsApp
+          </a>
+          <button type="button" class="mini" id="copy">Copia il messaggio</button>
+          <p class="toast" id="toast" role="status"></p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt" id="vicini">
+    <div class="wrap neighbors">
+      <div class="section-head" style="margin:0">
+        <p class="eyebrow">Per scuole e attività del quartiere</p>
+        <h2>La vostra tipografia, a due passi.</h2>
+        <p class="lead">Lavorate in centro? Seguiamo tutti gli stampati della vostra attività, con un grafico di riferimento che conosce il vostro marchio.</p>
+        <div class="ctas" style="margin-top:8px"><a class="btn primary" href="#su-misura">Parliamone</a></div>
+      </div>
+      <div class="who">
+        <div><strong>Negozi</strong><span>Shopper, etichette, biglietti, vetrine</span></div>
+        <div><strong>Ristoranti e bar</strong><span>Menù, tovagliette, divise ricamate</span></div>
+        <div><strong>Studi professionali</strong><span>Biglietti, carta intestata, cartelline</span></div>
+        <div><strong>Scuole e classi</strong><span>Magliette di classe, locandine, ricordi di fine anno</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="dove-siamo">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Dove siamo</p>
+        <h2>Vieni a trovarci in bottega.</h2>
+      </div>
+      <div class="visit">
+        <div class="card">
+          <h3>Indirizzo</h3>
+          <p class="addr">Via Sant'Isaia 19/A<br>40123 Bologna</p>
+          <p class="note">Centro storico, a due passi da Porta Sant'Isaia. Ci si arriva a piedi e in autobus; parcheggi a pagamento nelle vicinanze.</p>
+          <a class="btn ghost" href="https://www.google.com/maps/search/?api=1&amp;query=La+Bottega+delle+Formiche+Via+Sant%27Isaia+19%2FA+Bologna" target="_blank" rel="noopener">Apri in Google Maps</a>
+          <div class="contact">
+            <div><p class="note" style="margin:0">Telefono e WhatsApp</p><p class="num" id="phone">349 859 4477</p></div>
+            <button type="button" class="mini" id="copy-phone">Copia numero</button>
+          </div>
+          <a class="mini" style="display:inline-flex;align-items:center;justify-content:center;text-decoration:none;justify-self:start" href="https://www.instagram.com/labottegadelleformiche/" target="_blank" rel="noopener">Seguici su Instagram</a>
+        </div>
+        <div class="card">
+          <h3>Orari</h3>
+          <table class="hours" aria-label="Orari di apertura">
+            <tbody id="hours"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="#inizio"><svg aria-hidden="true" style="width:24px;height:24px"><use href="#ant"/></svg>La Bottega delle Formiche di Andrea Gaiba</a>
+    <span>Via Sant'Isaia 19/A, Bologna · Grafica, stampa e regali dal 1987</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // ---------- Dimensione del testo ----------
+  const root=document.documentElement, bN=document.getElementById('sz-normal'), bB=document.getElementById('sz-big');
+  function setSize(big){root.classList.toggle('big',big);bN.setAttribute('aria-pressed',String(!big));bB.setAttribute('aria-pressed',String(big));try{localStorage.setItem('bdf-big',big?'1':'0')}catch(e){}}
+  try{if(localStorage.getItem('bdf-big')==='1')setSize(true)}catch(e){}
+  bN.addEventListener('click',()=>setSize(false));bB.addEventListener('click',()=>setSize(true));
+
+  // ---------- Orari e stato aperto/chiuso (ora di Bologna) ----------
+  const DAYS=['Domenica','Lunedì','Martedì','Mercoledì','Giovedì','Venerdì','Sabato'];
+  const HOURS={1:[[510,780],[900,1140]],2:[[510,780],[900,1140]],3:[[510,780],[900,1140]],4:[[510,780],[900,1140]],5:[[510,780],[900,1140]],6:[],0:[]};
+  const fmt=m=>{const h=Math.floor(m/60),mm=m%60;return h+(mm?':'+String(mm).padStart(2,'0'):'')};
+  function romeNow(){
+    const p=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Rome',weekday:'short',hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(new Date());
+    const g=t=>p.find(x=>x.type===t).value;
+    const map={Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6};
+    return {d:map[g('weekday')],m:(parseInt(g('hour'),10)%24)*60+parseInt(g('minute'),10)};
+  }
+  const now=romeNow();
+  const tb=document.getElementById('hours');
+  [1,2,3,4,5,6,0].forEach(d=>{
+    const tr=document.createElement('tr');if(d===now.d)tr.className='today';
+    const s=HOURS[d].length?HOURS[d].map(r=>fmt(r[0])+'–'+fmt(r[1])).join(' · '):'Chiuso';
+    tr.innerHTML='<td>'+DAYS[d]+'</td><td>'+s+'</td>';tb.appendChild(tr);
+  });
+  const st=document.getElementById('status'),stt=document.getElementById('status-text');
+  const openR=HOURS[now.d].find(r=>now.m>=r[0]&&now.m<r[1]);
+  if(openR){st.classList.add('open');stt.textContent='Aperto ora · chiude alle '+fmt(openR[1]);}
+  else{
+    st.classList.add('closed');
+    const later=HOURS[now.d].find(r=>now.m<r[0]);
+    if(later){stt.textContent='Chiuso ora · riapre alle '+fmt(later[0]);}
+    else{for(let i=1;i<=7;i++){const d=(now.d+i)%7;if(HOURS[d].length){stt.textContent='Chiuso ora · riapre '+(i===1?'domani':DAYS[d].toLowerCase())+' alle '+fmt(HOURS[d][0][0]);break;}}}
+  }
+
+  // ---------- Quaderno personalizzabile ----------
+  const nb=document.getElementById('notebook'),nbName=document.getElementById('nb-name'),inp=document.getElementById('nome');
+  let t;
+  inp.addEventListener('input',()=>{
+    nbName.textContent=inp.value.trim()||'Il tuo nome';
+    nbName.classList.remove('inked');clearTimeout(t);t=setTimeout(()=>{void nbName.offsetWidth;nbName.classList.add('inked')},10);
+  });
+  const coverNames={1:'carta naturale',2:'blu notte',3:'rosso Bologna',4:'verde salvia'};
+  let cover=1;
+  document.querySelectorAll('.cover').forEach(b=>b.addEventListener('click',()=>{
+    cover=b.dataset.cv;
+    document.querySelectorAll('.cover').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));
+    nb.style.setProperty('--cv','var(--cover-'+cover+')');nb.style.setProperty('--cvi','var(--cover-'+cover+'-ink)');
+  }));
+  document.getElementById('use-name').addEventListener('click',()=>{
+    const n=inp.value.trim();
+    pick('cosa','Quaderni personalizzati');
+    if(n)document.getElementById('dettagli').value='Il nome "'+n+'" sulla copertina, colore '+coverNames[cover]+'.';
+    update();
+  });
+
+  // ---------- Preventivo su WhatsApp ----------
+  const PHONE='393498594477';
+  const state={cosa:'Quaderni personalizzati',quanti:'1',quando:'Entro due settimane'};
+  function pick(group,val){
+    state[group]=val;
+    document.querySelectorAll('[data-group="'+group+'"] .chip').forEach(c=>c.setAttribute('aria-pressed',String(c.dataset.v===val)));
+  }
+  document.querySelectorAll('[data-group]').forEach(g=>g.addEventListener('click',e=>{
+    const c=e.target.closest('.chip');if(!c)return;pick(g.dataset.group,c.dataset.v);update();
+  }));
+  const det=document.getElementById('dettagli'),msg=document.getElementById('msg'),wa=document.getElementById('wa');
+  function text(){
+    let s='Buongiorno! Vorrei un preventivo.\nCosa: '+state.cosa+'\nQuanti: '+state.quanti+'\nPer quando: '+state.quando;
+    const d=det.value.trim();if(d)s+='\nDettagli: '+d;
+    return s;
+  }
+  function update(){
+    document.getElementById('s-cosa').textContent=state.cosa;
+    document.getElementById('s-quanti').textContent=state.quanti;
+    document.getElementById('s-quando').textContent=state.quando;
+    const s=text();msg.textContent=s;wa.href='https://wa.me/'+PHONE+'?text='+encodeURIComponent(s);
+  }
+  det.addEventListener('input',update);
+  document.getElementById('quote').addEventListener('submit',e=>e.preventDefault());
+  update();
+
+  const toast=document.getElementById('toast');
+  function copy(str,el,ok){
+    const done=()=>{toast.textContent=ok;setTimeout(()=>toast.textContent='',2500)};
+    const fallback=()=>{const r=document.createRange();r.selectNodeContents(el);const s=getSelection();s.removeAllRanges();s.addRange(r);toast.textContent='Testo selezionato: ora puoi copiarlo.'};
+    try{navigator.clipboard.writeText(str).then(done,fallback)}catch(e){fallback()}
+  }
+  document.getElementById('copy').addEventListener('click',()=>copy(text(),msg,'Messaggio copiato.'));
+  document.getElementById('copy-phone').addEventListener('click',e=>{
+    const el=document.getElementById('phone');
+    try{navigator.clipboard.writeText(el.textContent).then(()=>{e.target.textContent='Copiato';setTimeout(()=>e.target.textContent='Copia numero',2000)},()=>{const r=document.createRange();r.selectNodeContents(el);getSelection().removeAllRanges();getSelection().addRange(r)})}catch(err){}
+  });
+})();
+</script>
