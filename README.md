@@ -7,7 +7,7 @@ Sito della Bottega delle Formiche, via Sant'Isaia – Bologna
 - `404.html` – pagina per gli indirizzi sbagliati
 - `style.css`, `script.js` – grafica e funzioni (orari, preventivo WhatsApp, testo grande)
 - `fonts/` – caratteri ospitati nel sito, con le loro licenze
-- `prototipo.html` – il prototipo di partenza, non collegato al sito
+- `img/` – logo e foto (vedi `img/LEGGIMI.md`)
 
 I dati ancora da confermare sono segnati con `TODO` nel codice (cerca "TODO").
 

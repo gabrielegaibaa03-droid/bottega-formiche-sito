@@ -1,11 +1,11 @@
 (function(){
   // ---------- Dati del negozio usati dallo script ----------
   // Devono restare uguali a quelli scritti in index.html e in CLAUDE.md.
-  // TODO: numero di telefono/WhatsApp DA CONFERMARE con Andrea e Laura (anche in index.html).
-  const PHONE='393498594477';
-  // Orari in minuti dalla mezzanotte (510 = 8:30). [] = chiuso, null = non ancora deciso.
-  // TODO: orario del sabato DA CONFERMARE. Finché è null il sabato compare come "da confermare".
-  const HOURS={1:[[510,780],[900,1140]],2:[[510,780],[900,1140]],3:[[510,780],[900,1140]],4:[[510,780],[900,1140]],5:[[510,780],[900,1140]],6:null,0:[]};
+  const PHONE='393759239787'; // 375 923 9787, telefono e WhatsApp
+  // Orari in minuti dalla mezzanotte (540 = 9:00). [] = chiuso, null = non ancora deciso.
+  // TODO: il sito attuale dice apertura alle 9, il questionario diceva 8:30: DA CONFERMARE
+  // (se è 8:30, cambiare 540 in 510 qui e aggiornare index.html in tre punti).
+  const HOURS={1:[[540,780],[900,1140]],2:[[540,780],[900,1140]],3:[[540,780],[900,1140]],4:[[540,780],[900,1140]],5:[[540,780],[900,1140]],6:[],0:[]};
 
   // ---------- Dimensione del testo (su tutte le pagine) ----------
   const root=document.documentElement, bN=document.getElementById('sz-normal'), bB=document.getElementById('sz-big');
@@ -71,13 +71,13 @@
   }));
   document.getElementById('use-name').addEventListener('click',()=>{
     const n=inp.value.trim();
-    pick('cosa','Quaderni personalizzati');
+    pick('cosa','Quaderni o agende personalizzati');
     if(n)document.getElementById('dettagli').value='Il nome "'+n+'" sulla copertina, colore '+coverNames[cover]+'.';
     update();
   });
 
   // ---------- Preventivo su WhatsApp ----------
-  const state={cosa:'Quaderni personalizzati',quanti:'1',quando:'Entro due settimane'};
+  const state={cosa:'Quaderni o agende personalizzati',quanti:'1',quando:'Entro due settimane'};
   function pick(group,val){
     state[group]=val;
     document.querySelectorAll('[data-group="'+group+'"] .chip').forEach(c=>c.setAttribute('aria-pressed',String(c.dataset.v===val)));

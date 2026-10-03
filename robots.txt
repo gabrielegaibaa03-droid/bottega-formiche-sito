@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /prototipo.html
 # TODO: quando c'è il dominio definitivo, aggiungere qui sotto la riga
-# Sitemap: https://DOMINIO/sitemap.xml  (e creare sitemap.xml)
+# Sitemap: https://labottegadelleformiche.it/sitemap.xml  (e creare sitemap.xml)

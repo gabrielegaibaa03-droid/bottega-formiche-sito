@@ -3,29 +3,31 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>La Bottega delle Formiche – Grafica, stampa e regali in via Sant'Isaia, Bologna</title>
-<meta name="description" content="Bottega di grafica, stampa e oggetti artigianali in via Sant'Isaia 19/A a Bologna. Andrea e Laura sono grafici dal 1987: biglietti, inviti, quaderni cuciti a mano, magliette e regali personalizzati.">
+<title>La Bottega delle Formiche – Life Style Goods &amp; Gifts · Grafica, stampa e copisteria in via Sant'Isaia, Bologna</title>
+<meta name="description" content="Grafica, stampa, copisteria, tesi di laurea e rilegature, quaderni e agende personalizzati, regali e moda fatta a mano in via Sant'Isaia 19/A a Bologna. Andrea e Laura sono grafici dal 1987.">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#FBFBF9" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#111214" media="(prefers-color-scheme: dark)">
-<!-- TODO: quando c'è l'indirizzo definitivo del sito (es. https://www.labottegadelleformiche.it/), aggiungere:
-     <link rel="canonical" href="...">, <meta property="og:url" content="..."> e un'immagine og:image in img/ -->
+<!-- TODO: quando questo sito prenderà il posto di quello su https://labottegadelleformiche.it/, aggiungere:
+     <link rel="canonical" href="https://labottegadelleformiche.it/">, <meta property="og:url" content="https://labottegadelleformiche.it/">
+     e un'immagine og:image (foto della bottega in img/, vedi img/LEGGIMI.md) -->
 <meta property="og:type" content="website">
 <meta property="og:locale" content="it_IT">
 <meta property="og:title" content="La Bottega delle Formiche">
-<meta property="og:description" content="Grafica, stampa e regali personalizzati in via Sant'Isaia 19/A, Bologna. Grafici dal 1987.">
+<meta property="og:description" content="Dove le idee prendono forma, colore e… diventano carta, inchiostro e sorrisi. Via Sant'Isaia 19/A, Bologna.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preload" href="fonts/atkinson-hyperlegible-next-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/familjen-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="style.css">
 <!-- Dati per Google (scheda dell'attività). Devono restare uguali a quelli scritti nella pagina. -->
-<!-- TODO: telefono DA CONFERMARE; aggiungere "url" quando c'è il dominio; aggiungere il sabato quando è deciso. -->
+<!-- TODO: aggiungere "url" e "logo" quando il sito sarà su labottegadelleformiche.it; orario di apertura 9:00 o 8:30 DA CONFERMARE. -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Store",
   "name": "La Bottega delle Formiche di Andrea Gaiba",
-  "description": "Grafica, stampa e oggetti artigianali dal 1987.",
+  "slogan": "Life Style Goods & Gifts",
+  "description": "Grafica, stampa, copisteria, rilegature, oggetti artigianali e regali dal 1987.",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Via Sant'Isaia 19/A",
@@ -34,10 +36,11 @@
     "addressRegion": "BO",
     "addressCountry": "IT"
   },
-  "telephone": "+39 349 859 4477",
+  "telephone": "+39 375 923 9787",
+  "email": "servicelabottega@gmail.com",
   "sameAs": ["https://www.instagram.com/labottegadelleformiche/"],
   "openingHoursSpecification": [
-    {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "08:30", "closes": "13:00"},
+    {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "13:00"},
     {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "15:00", "closes": "19:00"}
   ]
 }
@@ -66,7 +69,8 @@
 
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="#inizio" aria-label="La Bottega delle Formiche, torna su"><svg aria-hidden="true"><use href="#ant"/></svg><span>La Bottega delle Formiche</span></a>
+    <!-- TODO: sostituire il monogramma disegnato in CSS con il logo ufficiale LBDF (img/logo.svg) -->
+    <a class="brand" href="#inizio" aria-label="La Bottega delle Formiche, torna su"><span class="mono" aria-hidden="true"><span>LB</span><span>DF</span></span><span class="brand-text"><span>La Bottega delle Formiche</span><small lang="en">Life Style Goods &amp; Gifts</small></span></a>
     <nav class="nav" aria-label="Sezioni">
       <a href="#chi-siamo">Chi siamo</a>
       <a href="#cosa-facciamo">Cosa facciamo</a>
@@ -84,10 +88,11 @@
   <section class="hero" id="inizio">
     <div class="wrap">
       <div>
-        <!-- TODO: quando è deciso il sabato, aggiornare anche questo testo (si vede quando lo script non può dire se è aperto) -->
-        <p class="status" id="status" role="status"><span class="dot"></span><span id="status-text">Lun–ven 8:30–13 e 15–19</span></p>
-        <h1>Lo disegniamo e lo stampiamo noi. <span class="soft">Qui, in via Sant'Isaia.</span></h1>
-        <p class="lead">Andrea e Laura sono grafici dal 1987. Biglietti, inviti, quaderni fatti a mano, magliette e regali personalizzati: ci pensiamo noi, dall'idea alla stampa.</p>
+        <!-- TODO: orario 9 o 8:30 DA CONFERMARE (testo mostrato prima che parta lo script) -->
+        <p class="status" id="status" role="status"><span class="dot"></span><span id="status-text">Lun–ven 9–13 e 15–19</span></p>
+        <p class="eyebrow" lang="en">Life Style Goods &amp; Gifts</p>
+        <h1>Dove le idee prendono forma, colore e… <span class="soft">diventano carta, inchiostro e sorrisi.</span></h1>
+        <p class="lead">Andrea e Laura sono grafici dal 1987. Grafica, stampa e copisteria, tesi e rilegature, quaderni e agende personalizzati, regali e moda fatta a mano: ci pensiamo noi, dall'idea alla stampa.</p>
         <div class="ctas">
           <a class="btn primary" href="#su-misura">Chiedi un preventivo</a>
           <a class="btn ghost" href="#dove-siamo">Vieni in bottega</a>
@@ -135,9 +140,11 @@
       <div class="story">
         <div>
           <div class="text">
-            <p class="quote">Ogni lavoro nasce da una chiacchierata al banco. Ci dici cosa ti serve, lo progettiamo insieme e lo stampiamo qui.</p>
+            <p class="quote">Ogni giorno lavoriamo con le mani, la testa e un po' di cuore in più.</p>
+            <p>Ogni lavoro nasce da una chiacchierata al banco. Ci dici cosa ti serve, lo progettiamo insieme e lo stampiamo qui.</p>
+            <!-- TODO: foto della bottega o di Andrea e Laura al lavoro (img/bottega.webp), vedi img/LEGGIMI.md -->
             <p>Siamo Andrea e Laura. Abbiamo iniziato come grafici quando i testi si componevano ancora in piombo, e abbiamo seguito tutto il cammino fino alla stampa digitale.</p>
-            <p>Oggi la bottega è un posto dove trovare servizi di stampa fatti con cura e oggetti che non si trovano altrove: quaderni cuciti a mano, prodotti in carta italiana, tessili fatti a mano e regali da personalizzare.</p>
+            <p>Oggi la bottega è un posto dove trovare servizi di stampa fatti con cura e oggetti che non si trovano altrove: quaderni cuciti a mano, prodotti in carta italiana, tessili fatti a mano, capi sartoriali e regali da personalizzare.</p>
           </div>
           <div class="why">
             <svg aria-hidden="true"><use href="#ant"/></svg>
@@ -161,15 +168,21 @@
     <div class="wrap">
       <div class="section-head">
         <p class="eyebrow">Cosa facciamo</p>
-        <h2>Quattro cose, fatte bene.</h2>
+        <h2>Cosa trovi in bottega.</h2>
         <p class="lead">Se non sai da dove partire, vieni a trovarci: la consulenza è parte del lavoro.</p>
       </div>
       <div class="services">
         <article class="svc">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h8l4 4v14H7Z"/><path d="M15 3v4h4"/><path d="M4 6v15h12"/></svg></span>
+          <h3>Copisteria e rilegature</h3>
+          <p>Copie, stampe e rilegature fatte con cura, anche all'ultimo momento.</p>
+          <ul><li>Copie e stampe di qualità</li><li>Tesi di laurea</li><li>Rilegature di ogni genere</li></ul>
+        </article>
+        <article class="svc">
           <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V3h12v6"/><rect x="3" y="9" width="18" height="8" rx="2"/><path d="M6 14h12v7H6z"/></svg></span>
           <h3>Grafica e stampa</h3>
-          <p>Dal biglietto da visita al grande formato, con un grafico che ti segue.</p>
-          <ul><li>Biglietti da visita e carta intestata</li><li>Inviti, locandine, menù</li><li>Stampe e copie di qualità</li></ul>
+          <p>Dal logo al grande formato, con un grafico che ti segue.</p>
+          <ul><li>Loghi, biglietti da visita e carta intestata</li><li>Inviti, locandine, menù</li><li>Cartelli vetrina e vetrofanie</li></ul>
         </article>
         <article class="svc">
           <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3 4 5l-2 5 3 1v10h14V11l3-1-2-5-4-2a4 4 0 0 1-8 0Z"/></svg></span>
@@ -181,13 +194,19 @@
           <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h12a2 2 0 0 1 2 2v16H7a2 2 0 0 1-2-2Z"/><path d="M5 19a2 2 0 0 1 2-2h12"/><path d="M9 7h6"/></svg></span>
           <h3>Quaderni e cartoleria</h3>
           <p>Quaderni cuciti a mano e prodotti in carta italiana.</p>
-          <ul><li>Quaderni handmade</li><li>Biglietti d'auguri</li><li>Cancelleria scelta con cura</li></ul>
+          <ul><li>Quaderni, agende, taccuini e album personalizzati</li><li>Biglietti d'auguri</li><li>Cancelleria scelta con cura</li></ul>
         </article>
         <article class="svc">
           <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12v9H4v-9"/><path d="M2 7h20v5H2z"/><path d="M12 21V7"/><path d="M12 7H8a2.5 2.5 0 1 1 0-5c3 0 4 5 4 5Zm0 0h4a2.5 2.5 0 1 0 0-5c-3 0-4 5-4 5Z"/></svg></span>
           <h3>Casa e regali</h3>
           <p>Oggetti da regalare o da tenere, scelti da aziende italiane.</p>
           <ul><li>Tovaglie e tessili fatti a mano</li><li>Vasi e accessori per la cucina</li><li>Profumatori per la casa</li></ul>
+        </article>
+        <article class="svc">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6a2 2 0 1 1 2-2"/><path d="M12 6v2L3 15a1.5 1.5 0 0 0 1 2.6h16a1.5 1.5 0 0 0 1-2.6L12 8"/></svg></span>
+          <h3>Angolo moda</h3>
+          <p>Un piccolo spazio dedicato all'abbigliamento femminile.</p>
+          <ul><li>Capi sartoriali femminili</li><li>Cuciti a mano</li></ul>
         </article>
       </div>
     </div>
@@ -235,12 +254,15 @@
           <div class="step">
             <h3><span class="n">1</span>Che cosa?</h3>
             <div class="chips" role="group" aria-label="Che cosa" data-group="cosa">
-              <button type="button" class="chip" aria-pressed="true" data-v="Quaderni personalizzati">Quaderni</button>
+              <button type="button" class="chip" aria-pressed="true" data-v="Quaderni o agende personalizzati">Quaderni e agende</button>
+              <button type="button" class="chip" aria-pressed="false" data-v="Tesi di laurea o rilegatura">Tesi e rilegature</button>
+              <button type="button" class="chip" aria-pressed="false" data-v="Un logo o un lavoro di grafica">Logo e grafica</button>
               <button type="button" class="chip" aria-pressed="false" data-v="Biglietti da visita">Biglietti da visita</button>
               <button type="button" class="chip" aria-pressed="false" data-v="Inviti e partecipazioni">Inviti</button>
               <button type="button" class="chip" aria-pressed="false" data-v="T-shirt o felpe">T-shirt e felpe</button>
               <button type="button" class="chip" aria-pressed="false" data-v="Shopper e gadget">Shopper e gadget</button>
               <button type="button" class="chip" aria-pressed="false" data-v="Stampe e locandine">Stampe e locandine</button>
+              <button type="button" class="chip" aria-pressed="false" data-v="Cartelli vetrina o vetrofanie">Cartelli e vetrofanie</button>
               <button type="button" class="chip" aria-pressed="false" data-v="Un regalo personalizzato">Un regalo</button>
             </div>
           </div>
@@ -270,7 +292,7 @@
         <aside class="summary" aria-labelledby="sum-title">
           <h3 id="sum-title">La tua richiesta</h3>
           <dl>
-            <div><dt>Cosa</dt><dd id="s-cosa">Quaderni personalizzati</dd></div>
+            <div><dt>Cosa</dt><dd id="s-cosa">Quaderni o agende personalizzati</dd></div>
             <div><dt>Quanti</dt><dd id="s-quanti">1</dd></div>
             <div><dt>Quando</dt><dd id="s-quando">Entro due settimane</dd></div>
           </dl>
@@ -295,7 +317,7 @@
         <div class="ctas"><a class="btn primary" href="#su-misura">Parliamone</a></div>
       </div>
       <div class="who">
-        <div><strong>Negozi</strong><span>Shopper, etichette, biglietti, vetrine</span></div>
+        <div><strong>Negozi</strong><span>Shopper, etichette, biglietti, cartelli vetrina e vetrofanie</span></div>
         <div><strong>Ristoranti e bar</strong><span>Menù, tovagliette, divise ricamate</span></div>
         <div><strong>Studi professionali</strong><span>Biglietti, carta intestata, cartelline</span></div>
         <div><strong>Scuole e classi</strong><span>Magliette di classe, locandine, ricordi di fine anno</span></div>
@@ -315,19 +337,22 @@
           <p class="addr">Via Sant'Isaia 19/A<br>40123 Bologna</p>
           <p class="note">Centro storico, a due passi da Porta Sant'Isaia. Ci si arriva a piedi e in autobus; parcheggi a pagamento nelle vicinanze.</p>
           <a class="btn ghost" href="https://www.google.com/maps/search/?api=1&amp;query=La+Bottega+delle+Formiche+Via+Sant%27Isaia+19%2FA+Bologna" target="_blank" rel="noopener">Apri in Google Maps</a>
-          <!-- TODO: numero DA CONFERMARE con Andrea e Laura (è ripetuto anche in script.js e nei dati per Google in alto) -->
+          <!-- Il numero è ripetuto anche in script.js, nei dati per Google in alto e in privacy.html -->
           <div class="contact">
-            <div><p class="note">Telefono e WhatsApp</p><p class="num" id="phone">349 859 4477</p></div>
+            <div><p class="note">Telefono e WhatsApp</p><p class="num" id="phone">375 923 9787</p></div>
             <div class="contact-actions">
-              <a class="mini" href="tel:+393498594477">Chiama</a>
+              <a class="mini" href="tel:+393759239787">Chiama</a>
               <button type="button" class="mini" id="copy-phone">Copia numero</button>
             </div>
+          </div>
+          <div class="contact">
+            <div><p class="note">Email</p><p class="email"><a href="mailto:servicelabottega@gmail.com">servicelabottega@gmail.com</a></p></div>
           </div>
           <a class="mini insta" href="https://www.instagram.com/labottegadelleformiche/" target="_blank" rel="noopener">Seguici su Instagram</a>
         </div>
         <div class="card">
           <h3>Orari</h3>
-          <!-- Gli orari sono scritti in script.js (TODO: sabato DA CONFERMARE) -->
+          <!-- Gli orari sono scritti in script.js (TODO: apertura alle 9 o alle 8:30, DA CONFERMARE) -->
           <table class="hours" aria-label="Orari di apertura">
             <tbody id="hours"></tbody>
           </table>
@@ -339,9 +364,10 @@
 
 <footer>
   <div class="wrap">
-    <a class="brand" href="#inizio"><svg aria-hidden="true"><use href="#ant"/></svg>La Bottega delle Formiche di Andrea Gaiba</a>
+    <a class="brand" href="#inizio"><span class="mono" aria-hidden="true"><span>LB</span><span>DF</span></span><span class="brand-text"><span>La Bottega delle Formiche di Andrea Gaiba</span><small lang="en">Life Style Goods &amp; Gifts</small></span></a>
     <div class="legal">
       <p>Via Sant'Isaia 19/A, 40123 Bologna</p>
+      <p><a href="tel:+393759239787">375 923 9787</a> · <a href="mailto:servicelabottega@gmail.com">servicelabottega@gmail.com</a></p>
       <!-- TODO: Partita IVA DA INSERIRE (obbligatoria per legge: compilare prima di mettere online). Va cambiata anche in privacy.html -->
       <p>P. IVA: da inserire</p>
     </div>
