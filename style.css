@@ -72,8 +72,9 @@ p{margin:0}
 .top .wrap{display:flex;align-items:center;gap:16px;min-height:64px}
 .brand{display:flex;align-items:center;gap:10px;min-width:0;text-decoration:none;line-height:1.15;font-family:var(--f-display);font-weight:700;font-size:1.05rem;letter-spacing:-.01em}
 .brand svg{width:30px;height:30px;color:var(--ink);flex:none}
-/* Monogramma LBDF. TODO: sostituire con il logo ufficiale (img/logo.svg o .webp) quando lo abbiamo */
-.mono{display:grid;place-items:center;align-content:center;width:44px;height:44px;flex:none;border-radius:12px;background:var(--accent);color:var(--on-accent);font-family:var(--f-display);font-weight:700;font-size:.72rem;line-height:1;letter-spacing:.06em}
+/* Logo ufficiale (img/logo.svg, ricostruito in vettoriale dal logo della bottega) */
+.logo{width:48px;height:48px;flex:none;display:block}
+footer .brand .logo{width:72px;height:72px}
 .brand-text{display:grid;gap:2px}
 .brand-text small{font-family:var(--f-body);font-weight:500;font-size:.72rem;letter-spacing:.02em;color:var(--muted)}
 .nav{display:flex;gap:4px;margin-left:auto;flex-wrap:wrap}
@@ -231,7 +232,7 @@ section{padding-block:clamp(56px,9vw,112px)}
 footer{border-top:1px solid var(--line);padding-block:36px}
 footer .wrap{display:grid;gap:14px;color:var(--muted);font-size:.9rem}
 footer .brand{color:var(--ink);justify-self:start}
-footer .brand .mono{width:40px;height:40px;font-size:.66rem}
+
 footer p{margin:0}
 .legal{display:flex;flex-wrap:wrap;gap:4px 18px}
 .foot-links{display:flex;flex-wrap:wrap;gap:4px 8px;margin:0;padding:0;list-style:none}
@@ -250,7 +251,7 @@ footer p{margin:0}
 @media (max-width:480px){
   .top .wrap{gap:10px}
   .brand{font-size:.95rem}
-  .top .mono{width:40px;height:40px;font-size:.66rem}
+  .top .logo{width:42px;height:42px}
   .top .brand-text small{display:none}
 }
 

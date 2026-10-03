@@ -1,8 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <!-- Monogramma LBDF provvisorio. TODO: sostituire con il logo ufficiale -->
-  <rect width="64" height="64" rx="14" fill="#145A3A"/>
-  <g fill="#FFFFFF" font-family="Helvetica Neue, Arial, sans-serif" font-weight="700" font-size="22" text-anchor="middle" letter-spacing="1">
-    <text x="32" y="29">LB</text>
-    <text x="32" y="51">DF</text>
+  <!-- Favicon: il cerchio verde del logo con il monogramma LBDF (il logo completo è in img/logo.svg) -->
+  <circle cx="32" cy="32" r="31" fill="#4D8C74"/>
+  <circle cx="32" cy="32" r="26" fill="none" stroke="#FFFFFF" stroke-width="1.6"/>
+  <g fill="#FFFFFF" font-family="Helvetica Neue, Arial, sans-serif" font-weight="700" font-size="17" text-anchor="middle" letter-spacing="1">
+    <text x="32" y="30">LB</text>
+    <text x="32" y="47">DF</text>
   </g>
 </svg>

@@ -18,7 +18,7 @@ Per tutti: anziani del quartiere, famiglie, studenti, turisti, negozi e studi de
 - Testo base di almeno 18px, contrasto alto (almeno WCAG AA), pulsanti alti almeno 48px.
 - Il pulsante per ingrandire il testo resta sempre visibile.
 - Perfetto da telefono. Tema chiaro e tema scuro.
-- Identità della bottega (dal sito attuale): verde bottiglia come colore principale, arancio caldo per i titoletti, monogramma LBDF, frase "Life Style Goods & Gifts". La formica resta come dettaglio decorativo.
+- Identità della bottega (dal sito attuale): verde bottiglia come colore principale, arancio caldo per i titoletti, logo rotondo ufficiale (img/logo.svg), monogramma LBDF, frase "Life Style Goods & Gifts". La formica resta come dettaglio decorativo.
 - Usare i loro testi dove possibile, sono scritti con la loro voce. Frasi da tenere:
   - "Dove le idee prendono forma, colore e… diventano carta, inchiostro e sorrisi."
   - "Ogni giorno lavoriamo con le mani, la testa e un po' di cuore in più."
@@ -39,7 +39,8 @@ Per tutti: anziani del quartiere, famiglie, studenti, turisti, negozi e studi de
 - Email: servicelabottega@gmail.com
 - Orari: lunedì–venerdì 8:30–13:00 e 15:00–19:00; sabato e domenica chiuso — CONFERMATI dai titolari
 - Instagram: @labottegadelleformiche
-- Partita IVA: DA INSERIRE
+- Partita IVA: 03063371201 — CONFERMATA (il codice fiscale del titolare non va pubblicato)
+- Logo: `img/logo.svg` (vettoriale, ricostruito dal logo rotondo verde salvia #4D8C74 con ornamenti); `img/logo-512.png` per i social
 
 Non cambiare questi dati senza la conferma di Gabriele.
 
