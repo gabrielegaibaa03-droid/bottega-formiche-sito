@@ -20,7 +20,7 @@
 <link rel="preload" href="fonts/familjen-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="style.css">
 <!-- Dati per Google (scheda dell'attività). Devono restare uguali a quelli scritti nella pagina. -->
-<!-- TODO: aggiungere "url" e "logo" quando il sito sarà su labottegadelleformiche.it; orario di apertura 9:00 o 8:30 DA CONFERMARE. -->
+<!-- TODO: aggiungere "url" e "logo" quando il sito sarà su labottegadelleformiche.it. -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -40,7 +40,7 @@
   "email": "servicelabottega@gmail.com",
   "sameAs": ["https://www.instagram.com/labottegadelleformiche/"],
   "openingHoursSpecification": [
-    {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "13:00"},
+    {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "08:30", "closes": "13:00"},
     {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "15:00", "closes": "19:00"}
   ]
 }
@@ -88,8 +88,8 @@
   <section class="hero" id="inizio">
     <div class="wrap">
       <div>
-        <!-- TODO: orario 9 o 8:30 DA CONFERMARE (testo mostrato prima che parta lo script) -->
-        <p class="status" id="status" role="status"><span class="dot"></span><span id="status-text">Lun–ven 9–13 e 15–19</span></p>
+        <!-- Testo mostrato prima che lo script calcoli se siamo aperti o chiusi -->
+        <p class="status" id="status" role="status"><span class="dot"></span><span id="status-text">Lun–ven 8:30–13:00 e 15:00–19:00</span></p>
         <p class="eyebrow" lang="en">Life Style Goods &amp; Gifts</p>
         <h1>Dove le idee prendono forma, colore e… <span class="soft">diventano carta, inchiostro e sorrisi.</span></h1>
         <p class="lead">Andrea e Laura sono grafici dal 1987. Grafica, stampa e copisteria, tesi e rilegature, quaderni e agende personalizzati, regali e moda fatta a mano: ci pensiamo noi, dall'idea alla stampa.</p>
@@ -352,7 +352,7 @@
         </div>
         <div class="card">
           <h3>Orari</h3>
-          <!-- Gli orari sono scritti in script.js (TODO: apertura alle 9 o alle 8:30, DA CONFERMARE) -->
+          <!-- Gli orari sono scritti in script.js -->
           <table class="hours" aria-label="Orari di apertura">
             <tbody id="hours"></tbody>
           </table>

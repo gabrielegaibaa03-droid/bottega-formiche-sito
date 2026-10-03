@@ -37,7 +37,7 @@ Per tutti: anziani del quartiere, famiglie, studenti, turisti, negozi e studi de
 - Indirizzo: Via Sant'Isaia 19/A, 40123 Bologna
 - Telefono e WhatsApp: 375 923 9787 — CONFERMATO dai titolari (link WhatsApp: wa.me/393759239787)
 - Email: servicelabottega@gmail.com
-- Orari: lunedì–venerdì 9–13 e 15–19; sabato e domenica chiuso. Apertura alle 9 o alle 8:30? DA CONFERMARE (il sito attuale dice 9, il questionario diceva 8:30)
+- Orari: lunedì–venerdì 8:30–13:00 e 15:00–19:00; sabato e domenica chiuso — CONFERMATI dai titolari
 - Instagram: @labottegadelleformiche
 - Partita IVA: DA INSERIRE
 

@@ -2,10 +2,9 @@
   // ---------- Dati del negozio usati dallo script ----------
   // Devono restare uguali a quelli scritti in index.html e in CLAUDE.md.
   const PHONE='393759239787'; // 375 923 9787, telefono e WhatsApp
-  // Orari in minuti dalla mezzanotte (540 = 9:00). [] = chiuso, null = non ancora deciso.
-  // TODO: il sito attuale dice apertura alle 9, il questionario diceva 8:30: DA CONFERMARE
-  // (se è 8:30, cambiare 540 in 510 qui e aggiornare index.html in tre punti).
-  const HOURS={1:[[540,780],[900,1140]],2:[[540,780],[900,1140]],3:[[540,780],[900,1140]],4:[[540,780],[900,1140]],5:[[540,780],[900,1140]],6:[],0:[]};
+  // Orari confermati dai titolari, in minuti dalla mezzanotte (510 = 8:30). [] = chiuso, null = non ancora deciso.
+  // Lunedì–venerdì 8:30–13:00 e 15:00–19:00; sabato e domenica chiuso.
+  const HOURS={1:[[510,780],[900,1140]],2:[[510,780],[900,1140]],3:[[510,780],[900,1140]],4:[[510,780],[900,1140]],5:[[510,780],[900,1140]],6:[],0:[]};
 
   // ---------- Dimensione del testo (su tutte le pagine) ----------
   const root=document.documentElement, bN=document.getElementById('sz-normal'), bB=document.getElementById('sz-big');
@@ -21,7 +20,7 @@
 
   // ---------- Orari e stato aperto/chiuso (ora di Bologna) ----------
   const DAYS=['Domenica','Lunedì','Martedì','Mercoledì','Giovedì','Venerdì','Sabato'];
-  const fmt=m=>{const h=Math.floor(m/60),mm=m%60;return h+(mm?':'+String(mm).padStart(2,'0'):'')};
+  const fmt=m=>Math.floor(m/60)+':'+String(m%60).padStart(2,'0');
   function romeNow(){
     const p=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Rome',weekday:'short',hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(new Date());
     const g=t=>p.find(x=>x.type===t).value;
@@ -31,8 +30,11 @@
   const now=romeNow();
   [1,2,3,4,5,6,0].forEach(d=>{
     const tr=document.createElement('tr');if(d===now.d)tr.className='today';
-    const s=HOURS[d]===null?'Da confermare':HOURS[d].length?HOURS[d].map(r=>fmt(r[0])+'–'+fmt(r[1])).join(' · '):'Chiuso';
-    const a=document.createElement('td'),b=document.createElement('td');a.textContent=DAYS[d];b.textContent=s;
+    const a=document.createElement('td'),b=document.createElement('td');a.textContent=DAYS[d];
+    if(HOURS[d]===null)b.textContent='Da confermare';
+    else if(!HOURS[d].length)b.textContent='Chiuso';
+    // Ogni fascia oraria resta intera: su schermi stretti va a capo tra una fascia e l'altra
+    else HOURS[d].forEach((r,i)=>{const sp=document.createElement('span');sp.className='range';sp.textContent=fmt(r[0])+'–'+fmt(r[1]);if(i)b.append(' ');b.append(sp)});
     tr.append(a,b);tb.appendChild(tr);
   });
   const st=document.getElementById('status'),stt=document.getElementById('status-text');
