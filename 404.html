@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pagina non trovata – La Bottega delle Formiche</title>
+<meta name="description" content="Questa pagina non esiste.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#FBFBF9" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111214" media="(prefers-color-scheme: dark)">
+<meta name="robots" content="noindex">
+<!-- Nota: i percorsi sono relativi. Funzionano per gli indirizzi sbagliati al primo livello del sito;
+     con un dominio proprio si possono rendere assoluti (es. "/style.css"). -->
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Vai al contenuto</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="ant" viewBox="0 0 64 64">
+      <g fill="currentColor">
+        <ellipse cx="20" cy="32" rx="8" ry="7"/>
+        <ellipse cx="33" cy="32" rx="5.5" ry="5"/>
+        <ellipse cx="48" cy="32" rx="9.5" ry="8"/>
+      </g>
+      <g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M14 27 L8 18 L3 16"/><path d="M14 30 L6 24"/>
+        <path d="M31 28 L27 18 L22 13"/><path d="M33 28 L35 17 L40 12"/><path d="M35 29 L44 20 L50 18"/>
+        <path d="M31 36 L27 46 L22 51"/><path d="M33 36 L35 47 L40 52"/><path d="M35 35 L44 44 L50 46"/>
+      </g>
+    </symbol>
+    <symbol id="reg" viewBox="0 0 26 26"><g fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="13" cy="13" r="6"/><path d="M13 0v26M0 13h26"/></g></symbol>
+  </defs>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="./" aria-label="La Bottega delle Formiche, torna alla pagina principale"><svg aria-hidden="true"><use href="#ant"/></svg><span>La Bottega delle Formiche</span></a>
+    <nav class="nav" aria-label="Sezioni">
+      <a href="./#chi-siamo">Chi siamo</a>
+      <a href="./#cosa-facciamo">Cosa facciamo</a>
+      <a href="./#su-misura">Su misura</a>
+      <a href="./#dove-siamo">Dove siamo</a>
+    </nav>
+    <div class="size" role="group" aria-label="Dimensione del testo">
+      <button type="button" class="s1" id="sz-normal" aria-pressed="true" aria-label="Testo normale" title="Testo normale">A</button>
+      <button type="button" class="s2" id="sz-big" aria-pressed="false" aria-label="Testo più grande" title="Testo più grande">A</button>
+    </div>
+  </div>
+</header>
+
+<main id="main" class="page">
+  <div class="wrap prose">
+    <p class="eyebrow">Errore 404</p>
+    <h1>Questa pagina non c'è.</h1>
+    <p class="lead">Forse il link è sbagliato o la pagina è stata spostata.</p>
+    <div class="ctas"><a class="btn primary" href="./">Vai alla pagina principale</a></div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="./"><svg aria-hidden="true"><use href="#ant"/></svg>La Bottega delle Formiche di Andrea Gaiba</a>
+    <div class="legal">
+      <p>Via Sant'Isaia 19/A, 40123 Bologna</p>
+      <!-- TODO: Partita IVA DA INSERIRE (obbligatoria per legge: compilare prima di mettere online). Va cambiata anche in index.html -->
+      <p>P. IVA: da inserire</p>
+    </div>
+    <ul class="foot-links">
+      <li><a href="privacy.html">Privacy</a></li>
+      <li><a href="https://www.instagram.com/labottegadelleformiche/" target="_blank" rel="noopener">Instagram</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
