@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+# TODO: quando c'è il dominio definitivo, aggiungere qui sotto la riga
+# Sitemap: https://labottegadelleformiche.it/sitemap.xml  (e creare sitemap.xml)
