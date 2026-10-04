@@ -31,6 +31,9 @@ Per tutti: anziani del quartiere, famiglie, studenti, turisti, negozi e studi de
 - I preventivi usano un link wa.me al numero del negozio: nessun server, nessun database.
 - Immagini nella cartella `img/`, in WebP, sotto i 300 KB ciascuna.
 - File del sito: `index.html`, `privacy.html`, `404.html`, `style.css`, `script.js`, font in `fonts/`. Il prototipo iniziale è stato rimosso.
+- Home in stile pagine prodotto Apple, approvata da Gabriele (tavola 4 della lavagna "Home – tre idee di stampa"). Ordine delle sezioni: apertura con il titolo che si scompone nei colori di stampa, storia su fondo scuro con le frasi che si accendono, Chi siamo con la foto, stampante con il foglio che esce, quaderno cucito con il nome in copertina, servizi a tessere, preventivo su WhatsApp, vicini, Dove siamo con la mappa e la formica, recensioni.
+- Le animazioni legate allo scorrimento sono solo CSS (`animation-timeline`), in fondo a `style.css`. Senza supporto del browser o con "riduci movimento" la pagina resta completa e ferma. Su schermi piccoli e con il testo grande le sezioni non restano ferme.
+- Recensioni: solo frasi vere di clienti, prese da Google. Mai recensioni inventate.
 
 ## Dati del negozio (unica fonte di verità)
 - Nome: La Bottega delle Formiche di Andrea Gaiba
@@ -40,6 +43,7 @@ Per tutti: anziani del quartiere, famiglie, studenti, turisti, negozi e studi de
 - Orari: lunedì–venerdì 8:30–13:00 e 15:00–19:00; sabato e domenica chiuso — CONFERMATI dai titolari
 - Instagram: @labottegadelleformiche
 - Partita IVA: 03063371201 — CONFERMATA (il codice fiscale del titolare non va pubblicato)
+- Foto di Andrea e Laura: `img/andrea-e-laura.webp` (serve l'ok di chi l'ha scattata)
 - Logo: `img/logo.svg` (vettoriale, ricostruito dal logo rotondo verde salvia #4D8C74 con ornamenti); `img/logo-512.png` per i social
 
 Non cambiare questi dati senza la conferma di Gabriele.

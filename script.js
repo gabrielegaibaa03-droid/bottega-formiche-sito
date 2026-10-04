@@ -14,6 +14,12 @@
     bN.addEventListener('click',()=>setSize(false));bB.addEventListener('click',()=>setSize(true));
   }
 
+  // ---------- Mappa: con "riduci movimento" la formica resta ferma davanti alla bottega ----------
+  const mapSvg=document.querySelector('.map svg');
+  if(mapSvg&&window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches){
+    try{mapSvg.setCurrentTime(7);mapSvg.pauseAnimations()}catch(e){}
+  }
+
   // Le parti qui sotto esistono solo nella pagina principale
   const tb=document.getElementById('hours');
   if(!tb)return;
