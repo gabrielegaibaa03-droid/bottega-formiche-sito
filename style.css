@@ -344,9 +344,11 @@ footer .legal a{color:inherit;text-underline-offset:3px}
 .email a{color:var(--accent);text-underline-offset:3px}
 
 /* ---------- Animazioni legate allo scorrimento ----------
-   Solo dove il browser le supporta e senza "riduci movimento". */
+   Solo dove il browser le supporta, senza "riduci movimento" e su schermi grandi:
+   sul telefono la pagina resta ferma e ordinata (la barra del browser che si allarga
+   e si stringe sposterebbe le animazioni). */
 @supports (animation-timeline: view()){
-@media (prefers-reduced-motion: no-preference){
+@media (prefers-reduced-motion: no-preference) and (min-width:861px) and (min-height:641px){
   .story{view-timeline-name:--story}
   .press{view-timeline-name:--press}
   .sew{view-timeline-name:--sew}
@@ -401,3 +403,6 @@ footer .legal a{color:inherit;text-underline-offset:3px}
   @keyframes zoom{from{transform:scale(.55) rotate(-20deg);opacity:0}to{transform:none;opacity:.12}}
 }
 }
+
+/* Con il testo grande niente animazioni allo scorrimento: la pagina resta ferma e leggibile */
+html.big main *{animation:none!important}

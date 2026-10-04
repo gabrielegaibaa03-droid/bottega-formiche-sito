@@ -32,7 +32,7 @@ Per tutti: anziani del quartiere, famiglie, studenti, turisti, negozi e studi de
 - Immagini nella cartella `img/`, in WebP, sotto i 300 KB ciascuna.
 - File del sito: `index.html`, `privacy.html`, `404.html`, `style.css`, `script.js`, font in `fonts/`. Il prototipo iniziale è stato rimosso.
 - Home in stile pagine prodotto Apple, approvata da Gabriele (tavola 4 della lavagna "Home – tre idee di stampa"). Ordine delle sezioni: apertura con il titolo che si scompone nei colori di stampa, storia su fondo scuro con le frasi che si accendono, Chi siamo con la foto, stampante con il foglio che esce, quaderno cucito con il nome in copertina, servizi a tessere, preventivo su WhatsApp, vicini, Dove siamo con la mappa e la formica, recensioni.
-- Le animazioni legate allo scorrimento sono solo CSS (`animation-timeline`), in fondo a `style.css`. Senza supporto del browser o con "riduci movimento" la pagina resta completa e ferma. Su schermi piccoli e con il testo grande le sezioni non restano ferme.
+- Le animazioni legate allo scorrimento sono solo CSS (`animation-timeline`), in fondo a `style.css`. Senza supporto del browser o con "riduci movimento" la pagina resta completa e ferma. Le animazioni allo scorrimento e le sezioni ferme ci sono solo su schermi grandi (oltre 860px di larghezza e 640px di altezza) e senza testo grande: sul telefono la pagina resta ferma e ordinata.
 - Recensioni: solo frasi vere di clienti, prese da Google. Mai recensioni inventate.
 
 ## Dati del negozio (unica fonte di verità)
